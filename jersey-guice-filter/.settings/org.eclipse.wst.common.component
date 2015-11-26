@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="guicefilter-webapp">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <dependent-module archiveName="jersey-servlet-1.20-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jersey-servlet/jersey-servlet">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-server-1.20-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jersey-server/jersey-server">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-core-1.20-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jersey-core/jersey-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-guice-1.20-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jersey-guice/jersey-guice">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="jersey-guice-filter"/>
+        <property name="java-output-path" value="/guicefilter-webapp/target/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+  <classpathentry kind="src" path="src/test/java" output="target/test-classes" including="**/*.java"/>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar" sourcepath="M2_REPO/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/4.8.2/junit-4.8.2.jar" sourcepath="M2_REPO/junit/junit/4.8.2/junit-4.8.2-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/junit/junit/4.8.2/junit-4.8.2-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-grizzly2/1.20-SNAPSHOT/jersey-grizzly2-1.20-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-http/2.2.16/grizzly-http-2.2.16.jar" sourcepath="M2_REPO/org/glassfish/grizzly/grizzly-http/2.2.16/grizzly-http-2.2.16-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/org/glassfish/grizzly/grizzly-http/2.2.16/grizzly-http-2.2.16-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-framework/2.2.16/grizzly-framework-2.2.16.jar" sourcepath="M2_REPO/org/glassfish/grizzly/grizzly-framework/2.2.16/grizzly-framework-2.2.16-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/org/glassfish/grizzly/grizzly-framework/2.2.16/grizzly-framework-2.2.16-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-http-server/2.2.16/grizzly-http-server-2.2.16.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-rcm/2.2.16/grizzly-rcm-2.2.16.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-server/1.20-SNAPSHOT/jersey-server-1.20-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-core/1.20-SNAPSHOT/jersey-core-1.20-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-client/1.20-SNAPSHOT/jersey-client-1.20-SNAPSHOT.jar"/>
+</classpath>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+  <classpathentry kind="src" path="src/test/java" output="target/test-classes" including="**/*.java"/>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar" sourcepath="M2_REPO/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/javax/enterprise/cdi-api/1.0-SP4/cdi-api-1.0-SP4.jar" sourcepath="M2_REPO/javax/enterprise/cdi-api/1.0-SP4/cdi-api-1.0-SP4-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/javax/enterprise/cdi-api/1.0-SP4/cdi-api-1.0-SP4-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar" sourcepath="M2_REPO/javax/annotation/jsr250-api/1.0/jsr250-api-1.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/inject/javax.inject/1/javax.inject-1.jar" sourcepath="M2_REPO/javax/inject/javax.inject/1/javax.inject-1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/javax/inject/javax.inject/1/javax.inject-1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar" sourcepath="M2_REPO/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-servlet/1.20-SNAPSHOT/jersey-servlet-1.20-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-server/1.20-SNAPSHOT/jersey-server-1.20-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-core/1.20-SNAPSHOT/jersey-core-1.20-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/javax.annotation/3.1/javax.annotation-3.1.jar" sourcepath="M2_REPO/org/glassfish/javax.annotation/3.1/javax.annotation-3.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/javax.ejb/3.1/javax.ejb-3.1.jar" sourcepath="M2_REPO/org/glassfish/javax.ejb/3.1/javax.ejb-3.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/javax.transaction/3.1/javax.transaction-3.1.jar" sourcepath="M2_REPO/org/glassfish/javax.transaction/3.1/javax.transaction-3.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/weld-osgi-bundle/1.1.4.Final/weld-osgi-bundle-1.1.4.Final.jar" sourcepath="M2_REPO/org/jboss/weld/weld-osgi-bundle/1.1.4.Final/weld-osgi-bundle-1.1.4.Final-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/org/jboss/weld/weld-osgi-bundle/1.1.4.Final/weld-osgi-bundle-1.1.4.Final-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/spec/javax/interceptor/jboss-interceptors-api_1.1_spec/1.0.0.Beta1/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar" sourcepath="M2_REPO/org/jboss/spec/javax/interceptor/jboss-interceptors-api_1.1_spec/1.0.0.Beta1/jboss-interceptors-api_1.1_spec-1.0.0.Beta1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/weld-api/1.1.Final/weld-api-1.1.Final.jar" sourcepath="M2_REPO/org/jboss/weld/weld-api/1.1.Final/weld-api-1.1.Final-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/org/jboss/weld/weld-api/1.1.Final/weld-api-1.1.Final-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/weld-core/1.1.4.Final/weld-core-1.1.4.Final.jar" sourcepath="M2_REPO/org/jboss/weld/weld-core/1.1.4.Final/weld-core-1.1.4.Final-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/org/jboss/weld/weld-core/1.1.4.Final/weld-core-1.1.4.Final-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/weld-spi/1.1.Final/weld-spi-1.1.Final.jar" sourcepath="M2_REPO/org/jboss/weld/weld-spi/1.1.Final/weld-spi-1.1.Final-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/org/jboss/weld/weld-spi/1.1.Final/weld-spi-1.1.Final-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/javassist/javassist/3.14.0-GA/javassist-3.14.0-GA.jar" sourcepath="M2_REPO/org/javassist/javassist/3.14.0-GA/javassist-3.14.0-GA-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/org/javassist/javassist/3.14.0-GA/javassist-3.14.0-GA-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/com/google/guava/guava/r06/guava-r06.jar" sourcepath="M2_REPO/com/google/guava/guava/r06/guava-r06-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/com/google/guava/guava/r06/guava-r06-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/interceptor/jboss-interceptor-spi/2.0.0.CR1/jboss-interceptor-spi-2.0.0.CR1.jar" sourcepath="M2_REPO/org/jboss/interceptor/jboss-interceptor-spi/2.0.0.CR1/jboss-interceptor-spi-2.0.0.CR1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/interceptor/jboss-interceptor-core/2.0.0.CR1/jboss-interceptor-core-2.0.0.CR1.jar" sourcepath="M2_REPO/org/jboss/interceptor/jboss-interceptor-core/2.0.0.CR1/jboss-interceptor-core-2.0.0.CR1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.5.10/slf4j-api-1.5.10.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.5.10/slf4j-api-1.5.10-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-ext/1.5.10/slf4j-ext-1.5.10.jar" sourcepath="M2_REPO/org/slf4j/slf4j-ext/1.5.10/slf4j-ext-1.5.10-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/ch/qos/cal10n/cal10n-api/0.7.2/cal10n-api-0.7.2.jar" sourcepath="M2_REPO/ch/qos/cal10n/cal10n-api/0.7.2/cal10n-api-0.7.2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/weld/weld-build-config/1.1.4.Final/weld-build-config-1.1.4.Final.jar" sourcepath="M2_REPO/org/jboss/weld/weld-build-config/1.1.4.Final/weld-build-config-1.1.4.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javassist/javassist/3.12.0.GA/javassist-3.12.0.GA.jar" sourcepath="M2_REPO/javassist/javassist/3.12.0.GA/javassist-3.12.0.GA-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-test-framework/jersey-test-framework-external/1.20-SNAPSHOT/jersey-test-framework-external-1.20-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-test-framework/jersey-test-framework-core/1.20-SNAPSHOT/jersey-test-framework-core-1.20-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/4.8.2/junit-4.8.2.jar" sourcepath="M2_REPO/junit/junit/4.8.2/junit-4.8.2-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/SrinivasanRag/.m2/repository/junit/junit/4.8.2/junit-4.8.2-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-client/1.20-SNAPSHOT/jersey-client-1.20-SNAPSHOT.jar"/>
+</classpath>

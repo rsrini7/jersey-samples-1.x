@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1448525236154
+Build-Id: 1.20-SNAPSHOT ${buildNumber}
+Build-Jdk: 1.8.0_05
+Built-By: SrinivasanRag
+Bundle-Description: Samples that show how to use jersey.
+Bundle-DocURL: http://www.oracle.com/
+Bundle-License: http://glassfish.java.net/public/CDDL+GPL_1_1.html, http
+ ://glassfish.java.net/public/CDDL+GPL_1_1.html
+Bundle-ManifestVersion: 2
+Bundle-Name: Simple Console - Jersey sample
+Bundle-SymbolicName: com.sun.jersey.samples.simple-console
+Bundle-Vendor: Oracle Corporation
+Bundle-Version: 1.20.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.sun.jersey.samples.console;uses:="com.sun.jersey.api
+ .core,com.sun.jersey.api.container.grizzly2,javax.ws.rs.core,org.glassf
+ ish.grizzly.http.server";version="1.20.0.SNAPSHOT",com.sun.jersey.sampl
+ es.console.resources;uses:="org.codehaus.jettison.json,javax.ws.rs,java
+ x.ws.rs.core,com.sun.jersey.api.representation";version="1.20.0.SNAPSHO
+ T"
+Implementation-Title: Simple Console - Jersey sample
+Implementation-Vendor: Oracle Corporation
+Implementation-Vendor-Id: com.sun.jersey.samples
+Implementation-Version: 1.20-SNAPSHOT
+Import-Package: com.sun.jersey.api.container.grizzly2;version="[1.20,2)"
+ ,com.sun.jersey.api.core;version="[1.20,2)",com.sun.jersey.api.represen
+ tation;version="[1.20,2)",javax.ws.rs;version="[1.1,2)",javax.ws.rs.cor
+ e;version="[1.1,2)",org.codehaus.jettison.json;version="[1.1,2)",org.gl
+ assfish.grizzly.http.server;version="[2.2,3)"
+Tool: Bnd-1.50.0

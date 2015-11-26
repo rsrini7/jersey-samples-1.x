@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--
+
+    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+    Copyright (c) 2010-2011 Oracle and/or its affiliates. All rights reserved.
+
+    The contents of this file are subject to the terms of either the GNU
+    General Public License Version 2 only ("GPL") or the Common Development
+    and Distribution License("CDDL") (collectively, the "License").  You
+    may not use this file except in compliance with the License.  You can
+    obtain a copy of the License at
+    http://glassfish.java.net/public/CDDL+GPL_1_1.html
+    or packager/legal/LICENSE.txt.  See the License for the specific
+    language governing permissions and limitations under the License.
+
+    When distributing the software, include this License Header Notice in each
+    file and include the License file at packager/legal/LICENSE.txt.
+
+    GPL Classpath Exception:
+    Oracle designates this particular file as subject to the "Classpath"
+    exception as provided by Oracle in the GPL Version 2 section of the License
+    file that accompanied this code.
+
+    Modifications:
+    If applicable, add the following below the License Header, with the fields
+    enclosed by brackets [] replaced by your own identifying information:
+    "Portions Copyright [year] [name of copyright owner]"
+
+    Contributor(s):
+    If you wish your version of this file to be governed by only the CDDL or
+    only the GPL Version 2, indicate your decision by adding "[Contributor]
+    elects to include this software in this distribution under the [CDDL or GPL
+    Version 2] license."  If you don't indicate a single choice of license, a
+    recipient has the option to distribute your version of this file under
+    either the CDDL, the GPL Version 2 or to extend the choice of license to
+    its licensees as provided above.  However, if you add GPL Version 2 code
+    and therefore, elected the GPL Version 2 license, then the option applies
+    only if the new code is made subject to such option by the copyright
+    holder.
+
+-->
+<html><head><title>AtomPub Contacts Server Sample</title></head>
+
+
+  <body>
+	<h1>AtomPub Example Application -- Contacts System</h1>
+	      
+	      <p>This module is one of a three part set of modules that contain an example
+application using the jersey-atom-abdera module to send and receive data
+encapsulated in Atom Publishing Protocol feeds and entries.  The sample
+application itself is inspired by the Google Contacts Data API
+<a href="https://developers.google.com/google-apps/contacts/v3/">https://developers.google.com/google-apps/contacts/v3/</a>, with some additional functionality
+to illustrate alternative techniques.
+</p>
+	      
+	      <h2>Introduction</h2>
+	      <p>The separation of functionality into three modules allows a common set of
+JavaBean "model" classes to be shared by the client and server modules.
+</p>
+
+    	<h3>atompub-contacts-models module</h3>
+    	    <p>
+    	    This module contains JavaBean classes for the two types of application data
+	    that can be transmitted via this web service -- User represents a system user,
+	    and Contact represents one of potentially many contacts associated with that
+	    user.  The User class contains JAXB annotations, so we can leverage the fact
+	    that JAX-RS based applications can automatically serialize and deserialize
+	    instances of such a class, with no need to provide MessageBodyReader or
+	    MessageBodyWriter providers itself.
+    	     </p>
+
+        <h3>atompub-contacts-server module</h3>
+	    	    <p>
+	    	    This module contains a Jersey based server that implements the contacts API.
+		    To simplify setup, the "database" behind this service is hashmaps of
+		    JavaBeans (so it goes away when the service is stopped).  It implements two
+		    top-level resources -- "/users" returns an Atom feed of all users defined
+		    in the database, while "/contacts/{username}" returns an Atom feed of all
+		    contacts defined for the specified user.
+	    	     </p>
+	    	     <p>
+	    	     The server implementation uses a Jersey filter to implement authentication
+		     and authorization checks.  Every client request must specify a valid username/
+		     password combination (<b>the database is initialized with a user named
+             "admin" and password "password"</b>).  The administrative user can add, update,
+		     and delete other users, as well as manage the contacts for any user.  All
+		     other users can only manage their own contact lists.
+		     </p>    	    	    
+	    	     <p>
+	    	     The server illustrates two different techniques for embedding application
+		     data in Atom feeds and entries:
+	    	     	<ul>
+	    	     		<li>
+					Contact data is sent and received by using a custom XML namespace,
+  and embedding the various data elements as extension elements in an
+  Atom entry.  This is the same technique that Google Contacts Data API
+  uses for this purpose.	    	     		
+	    	     		</li>
+	    	     		<li>
+					User data is sent and received by embedding a custom XML representation
+  inside the &lt;content&gt; element of an Atom entry.  The ContentHelper
+  class (from jersey-atom-abdera) is utilized to serialize and deserialize
+  the User instances, using the same providers (built in, since this class
+  has JAXB annotations) that would be used if you sent or received the
+  User instance as an entity of a JAX-RS request or response.	    	     			
+	    	     		</li>
+	    	     	</ul>
+	    	     </p>
+	    	     <p>
+	    	     		This module has a dependency on the "atompub-contacts-models" module for
+				definitions of the Contact and User classes representing the application data
+				that can be transported.
+	    	     </p>
+            <h3>atompub-contacts-client module</h3>
+    		<p>
+    		While you can write a client application to communicate with this server in
+		any language you like (including Java), a Java client application has the
+		option to use the ContactsClient class from this module as a proxy for the
+		remote web service.  This allows your application development efforts to
+		focus on the business logic of your application, rather than the low level
+		details of formatting a proper Atom message, and dealing with low level
+		HTTP communication.
+		</p>
+        <p>
+		This module also has a dependency on the "atompub-contacts-models" module
+		for definitions of the Contact and User classes (same dependency as the
+		server, so that these classes are guaranteed to be defined identically
+		at both ends).
+      </p>
+
+
+    <h3>Running the example</h3>
+    <p>You can start the server by issuing
+   <pre>
+       mvn clean compile exec:java
+    </pre>
+    from <code>atompub-contacts-server</code> directory.
+
+    Then at <a href="http://localhost:9998/users">http://localhost:9998/users</a> you can see an initial list of users
+    as an Atom feed, after you have logged in entering a user name of "admin" and a password of "password" in the dialog box.
+
+    <p>Then you can try to the client with
+    <pre>
+        cd ../atompub-contacts-client
+        mvn clean compile exec:java
+    </pre>
+
+    The client should populate data on a new user. You can now check <a href="http://localhost:9998/users">http://localhost:9998/users</a>
+    again to see the new user.
+
+</body></html>
+

@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1448524952632
+Build-Id: 1.20-SNAPSHOT ${buildNumber}
+Build-Jdk: 1.8.0_05
+Built-By: SrinivasanRag
+Bundle-Description: Samples that show how to use jersey.
+Bundle-DocURL: http://www.oracle.com/
+Bundle-License: http://glassfish.java.net/public/CDDL+GPL_1_1.html, http
+ ://glassfish.java.net/public/CDDL+GPL_1_1.html
+Bundle-ManifestVersion: 2
+Bundle-Name: Helloworld - Jersey sample
+Bundle-SymbolicName: com.sun.jersey.samples.helloworld
+Bundle-Vendor: Oracle Corporation
+Bundle-Version: 1.20.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.sun.jersey.samples.helloworld;uses:="com.sun.jersey.
+ api.core,com.sun.jersey.api.container.grizzly2,javax.ws.rs.core,org.gla
+ ssfish.grizzly.http.server";version="1.20.0.SNAPSHOT",com.sun.jersey.sa
+ mples.helloworld.resources;uses:="javax.ws.rs";version="1.20.0.SNAPSHOT
+ "
+Implementation-Title: Helloworld - Jersey sample
+Implementation-Vendor: Oracle Corporation
+Implementation-Vendor-Id: com.sun.jersey.samples
+Implementation-Version: 1.20-SNAPSHOT
+Import-Package: com.sun.jersey.api.container.grizzly2;version="[1.20,2)"
+ ,com.sun.jersey.api.core;version="[1.20,2)",javax.ws.rs;version="[1.1,2
+ )",javax.ws.rs.core;version="[1.1,2)",org.glassfish.grizzly.http.server
+ ;version="[2.2,3)"
+Tool: Bnd-1.50.0

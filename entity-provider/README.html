@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--
+
+    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+    Copyright (c) 2010-2011 Oracle and/or its affiliates. All rights reserved.
+
+    The contents of this file are subject to the terms of either the GNU
+    General Public License Version 2 only ("GPL") or the Common Development
+    and Distribution License("CDDL") (collectively, the "License").  You
+    may not use this file except in compliance with the License.  You can
+    obtain a copy of the License at
+    http://glassfish.java.net/public/CDDL+GPL_1_1.html
+    or packager/legal/LICENSE.txt.  See the License for the specific
+    language governing permissions and limitations under the License.
+
+    When distributing the software, include this License Header Notice in each
+    file and include the License file at packager/legal/LICENSE.txt.
+
+    GPL Classpath Exception:
+    Oracle designates this particular file as subject to the "Classpath"
+    exception as provided by Oracle in the GPL Version 2 section of the License
+    file that accompanied this code.
+
+    Modifications:
+    If applicable, add the following below the License Header, with the fields
+    enclosed by brackets [] replaced by your own identifying information:
+    "Portions Copyright [year] [name of copyright owner]"
+
+    Contributor(s):
+    If you wish your version of this file to be governed by only the CDDL or
+    only the GPL Version 2, indicate your decision by adding "[Contributor]
+    elects to include this software in this distribution under the [CDDL or GPL
+    Version 2] license."  If you don't indicate a single choice of license, a
+    recipient has the option to distribute your version of this file under
+    either the CDDL, the GPL Version 2 or to extend the choice of license to
+    its licensees as provided above.  However, if you add GPL Version 2 code
+    and therefore, elected the GPL Version 2 license, then the option applies
+    only if the new code is made subject to such option by the copyright
+    holder.
+
+-->
+<html><head><title>Entity Provider Example</title></head>
+
+
+  <body>
+      <h1>Entity Provider Example</h1>
+      <p>This example demonstrates how to add support for custom
+      Java types as resource class method parameters.</p>
+      
+      <h2>Contents</h2>
+      <p>The example consists of seven Java classes:</p>
+      <dl>
+          <dt><code>com.sun.jersey.samples.entityprovider.Main</code></dt>
+          <dd>Contains the main function which starts and stops the HTTP server.</dd>
+          <dt><code>com.sun.jersey.samples.entityprovider.resources.MapResource</code></dt>
+          <dd>A resource class that provides read and write access to a 
+          <code>Hashtable</code>.</dd>
+          <dt><code>com.sun.jersey.samples.entityprovider.resources.PropertiesResource</code></dt>
+          <dd>A resource class that provides read access to the system properties as plain text.</dd>
+          <dt><code>com.sun.jersey.samples.entityprovider.resources.NameValuePair</code></dt>
+          <dd>A utility class used to update <code>MapResource</code>. The input HTML form
+          data is converted into an instance of this class by <code>FormReader</code>.</dd>
+          <dt><code>com.sun.jersey.samples.entityprovider.FormReader</code></dt>
+          <dd>A message body reader that can read HTML form data and produce an
+          instance of <code>NameValuePair</code>. This class is used to instantiate the
+          <code>NameValuePair</code> parameter of <code>MapResource.updateDataItem()</code>.</dd>
+          <dt><code>com.sun.jersey.samples.entityprovider.FormWriter</code></dt>
+          <dd>A message body writer that can write an HTML page that contains
+          the contents of a <code>Hashtable</code> along with a HTML form
+          for modifying the contents. This class is used to render the
+          output of <code>MapResource.getData()</code> and <code>MapResource.updateDataItem()</code>.</dd>
+          <dt><code>com.sun.jersey.samples.entityprovider.PropertiesProvider</code></dt>
+          <dd>A message body writer that can write a plain text representation of
+          a <code>Properties</code> instance. This class is used to render the
+          output of <code>PropertiesResource.getSystemProperties()</code>.</dd>
+      </dl>
+      
+      <p>Jersey uses the following files to find the message body readers and writers 
+      (<code>FormReader</code>, <code>FormWriter</code> and <code>PropertiesProvider</code>):</p>
+      <dl>
+        <dt><code>META-INF/services/javax.ws.rs.ext.MessageBodyReader</code></dt>
+        <dd>Lists each class that implements <code>MessageBodyReader</code> 
+        (<code>FormReader</code>).</dd>
+        <dt><code>META-INF/services/javax.ws.rs.ext.MessageBodyWriter</code></dt>
+        <dd>Lists each class that implements <code>MessageBodyWriter</code> 
+        (<code>FormWriter</code> and <code>PropertiesProvider</code>).</dd>
+      </dl>
+      <p>Annotations on each message body reader and writer indicate the supported
+      media types.</p>
+    <p>The mapping of the URI path space is presented in the following table:</p>
+	<table border="1">
+	<tr>
+	<th>URI path</th>
+	<th>Resource class</th>
+	<th>HTTP methods</th>
+	</tr>
+	<tr>
+	<td>/data</td>
+	<td>MapResource</td>
+	<td>GET, POST</td>
+	</tr>
+	<tr>
+	<td>/properties</td>
+	<td>PropertiesResource</td>
+	<td>GET</td>
+	</tr>
+	</table>
+      
+      <h2>Running the Example</h2>
+      <p>Run the example as follows:</p>
+      <blockquote><pre>
+mvn compile exec:java</pre></blockquote>
+
+      <p>From a web browser, visit:</p>
+      <blockquote><code><a href="http://127.0.0.1:9998/properties">http://127.0.0.1:9998/properties</a></code></blockquote>
+      <p>From a web browser, visit:</p>
+      <blockquote><code><a href="http://127.0.0.1:9998/data">http://127.0.0.1:9998/data</a></code></blockquote>
+      <p>Fill in the form and submit it. Note that the list below the form is
+      updated each time the form is submitted.</p>
+ 
+      <p>A <a href="http://wadl.java.net/#spec">WADL description</a> may be accessed at the URL:</p>
+      <blockquote><code><a href="http://127.0.0.1:9998/application.wadl">http://127.0.0.1:9998/application.wadl</a></code></blockquote>
+      
+  </body></html>

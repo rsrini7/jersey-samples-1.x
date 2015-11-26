@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--
+
+    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+    Copyright (c) 2010-2011 Oracle and/or its affiliates. All rights reserved.
+
+    The contents of this file are subject to the terms of either the GNU
+    General Public License Version 2 only ("GPL") or the Common Development
+    and Distribution License("CDDL") (collectively, the "License").  You
+    may not use this file except in compliance with the License.  You can
+    obtain a copy of the License at
+    http://glassfish.java.net/public/CDDL+GPL_1_1.html
+    or packager/legal/LICENSE.txt.  See the License for the specific
+    language governing permissions and limitations under the License.
+
+    When distributing the software, include this License Header Notice in each
+    file and include the License file at packager/legal/LICENSE.txt.
+
+    GPL Classpath Exception:
+    Oracle designates this particular file as subject to the "Classpath"
+    exception as provided by Oracle in the GPL Version 2 section of the License
+    file that accompanied this code.
+
+    Modifications:
+    If applicable, add the following below the License Header, with the fields
+    enclosed by brackets [] replaced by your own identifying information:
+    "Portions Copyright [year] [name of copyright owner]"
+
+    Contributor(s):
+    If you wish your version of this file to be governed by only the CDDL or
+    only the GPL Version 2, indicate your decision by adding "[Contributor]
+    elects to include this software in this distribution under the [CDDL or GPL
+    Version 2] license."  If you don't indicate a single choice of license, a
+    recipient has the option to distribute your version of this file under
+    either the CDDL, the GPL Version 2 or to extend the choice of license to
+    its licensees as provided above.  However, if you add GPL Version 2 code
+    and therefore, elected the GPL Version 2 license, then the option applies
+    only if the new code is made subject to such option by the copyright
+    holder.
+
+-->
+<html><head><title>Mandel Service Example</title></head>
+
+<body>
+<h1>Mandel Service Example</h1>
+<p>This example demonstrates a service,
+implemented in <A HREF="http://www.scala-lang.org/">Scala</A>, that
+calculates the <A HREF="http://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot</A>
+set over a specified area (of the complex plane) and returns an image
+of that area that represents the set.</p>
+<h2>Contents</h2>
+<p>The example consists of one web resource implemented by the
+following: 
+</p>
+    <dl>
+	<dt><code>mandel.MandelService</code></dt>
+	<dd>This Scala class returns the a PNG image of a Mandelbrot set
+	calculated over a specified area.</dd>
+    </dl>
+<p>
+The mapping of the URI path space is presented in the following
+table:</p>
+<TABLE WIDTH=419 BORDER=1 CELLPADDING=2 CELLSPACING=3>
+	<COL WIDTH=177>
+	<COL WIDTH=115>
+	<COL WIDTH=102>
+	<TR>
+		<TH WIDTH=177>
+			<P>URI path</TH>
+		<TH WIDTH=115>
+			<P>Resource class</TH>
+		<TH WIDTH=102>
+			<P>HTTP methods</TH>
+	</TR>
+	<TR>
+		<TD WIDTH=177>
+			<P>({lx},{ly}),({ux},{uy})</TD>
+		<TD WIDTH=115>
+			<P>MandelResource</TD>
+		<TD WIDTH=102>
+			<P>GET</TD>
+	</TR>
+</TABLE>
+<P>The URI template, &ldquo;({lx},{ly}),({ux},{uy})&rdquo;, embeds
+the bottom left had corner and the top right hand corner of the area
+to calculate as template variables. The following query parameters
+are supported by MandelResource:</P>
+<TABLE WIDTH=419 BORDER=1 CELLPADDING=2 CELLSPACING=3>
+	<COL WIDTH=127>
+	<COL WIDTH=104>
+	<COL WIDTH=162>
+	<TR>
+		<TH WIDTH=127>
+			<P>Query parameter</TH>
+		<TH WIDTH=104>
+			<P>Default Value</TH>
+		<TH WIDTH=162>
+			<P>Description</TH>
+	</TR>
+	<TR>
+		<TD WIDTH=127>
+			<P>imageSize</TD>
+		<TD WIDTH=104>
+			<P>512</TD>
+		<TD WIDTH=162>
+			<P>The maximum size of the image in width or height</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=127>
+			<P>limit 
+		</TD>
+		<TD WIDTH=104>
+			<P>512</TD>
+		<TD WIDTH=162>
+			<P>The limit on the number of iterations to determine if a point
+			on the complex   plane belongs to the Mandelbrot set.</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=127>
+			<P>workers</TD>
+		<TD WIDTH=104>
+			<P>8</TD>
+		<TD WIDTH=162>
+			<P>The number of Scala actors instantiated to 
+		</TD>
+	</TR>
+</TABLE>
+<P>The URI template, &ldquo;({lx},{ly}),({ux},{uy})&rdquo;, embeds
+the bottom left had corner and the top right hand corner of the area
+to calculate.</P>
+<H2>Scaling up</H2>
+<P>The implementation utilizes Scala actors to calculate the set
+concurrently. If a system can avail of many hardware threads of
+multiple cores in a single chip then the Mandelbrot set can be
+calculated in parallel. The number of concurrent actors can be
+modified by the query parameter &ldquo;workers&rdquo;. Such a
+parameter should not really be required as Scala's event-based actors
+are cheap to construct  and in theory the runtime should utilize has
+many threads as the hardware and configuration allows to concurrently
+process actors. However, it is useful for testing and verifying
+performance increases (yet to be verified with this implementation!).</P>
+<h2>Running the Example</h2>
+<P>Run the example as follows:</P>
+<dl>
+	<dd><pre>
+mvn clean compile exec:java</pre></dd></dl>
+<p>
+then go to the URL 
+<a href="http://localhost:9998/mandelbrot/(-2.2,-1.2),(0.8,1.2)">http://localhost:9998/mandelbrot/(-2.2,-1.2),(0.8,1.2)</a>.</p>
+<h2>TODO</h2>
+    <ul>
+	<li><p>Test on multi-core machine to see if performance is improved.</p>
+	<li><p>Assign Etags based on the area to calculate the image size
+	and the limit.</p>
+	<li><p>A client that enables one to zoom into the set</p>
+	<li><p>A client that enables one to browse the set a bit like the
+	way Google maps works. This would be an example of scaling out.</p>
+    </ul>
+</body>
+</html>
